@@ -1,0 +1,120 @@
+
+In the early days, computer manufacturers developed their own networking Protocols for communication between their devices.
+
+Example:
+        Dell developed its own protocols → Dell1, Dell2
+        
+        Lenovo developed its own protocols → Lenovo1, Lenovo2
+
+    If Dell1 communicates with Dell2, there is no issue since both follow the same protocol.
+    
+    However, if Dell1 tries to communicate with Lenovo1, it fails because they use different protocol stacks that are incompatible with each other.
+
+
+
+Why OSI Was Introduced:
+                    *To solve this issue, ISO (International Organization for Standardization) introduced the OSI (Open Systems Interconnection) model, which defines a standardized framework for communication.
+
+Purpose of OSI:
+                *Provides a standardized communication model that all manufacturers must follow.
+                
+                Ensures seamless communication between different systems, regardless of their underlying protocols.
+                
+                Breaks down communication into 7 layers, each handling a specific function.
+
+    By following the OSI model, any computer or network device—whether from Dell, Lenovo, HP, Cisco, or any other manufacturer—can communicate without compatibility issues.
+
+
+
+
+why OSI model or framework is called as "Reference model"? 
+
+    After the OSI model was introduced, the TCP/IP model became widely adopted.
+    
+    TCP/IP is not an updated version of OSI but rather a simplified and practical model that was already in development before OSI.
+    
+    Since TCP/IP became the standard for real-world networking, most manufacturers migrated to TCP/IP, and the OSI model remained primarily a reference model rather than an actual working framework.
+
+
+
+
+
+
+
+
+
+
+Working of  OSI :   
+
+    OSI Model gives  you a clear understanding of how data flows through Network 
+        
+        Each layer is a "Package of Protocols" which decides the folow of Data in the network to maitain seamless Commmunication
+
+                                            Application Layer  ----------------> L7
+
+
+                                            Presentation Layer  ----------------> L6
+
+
+                                            Session Layer  ---------------------> L5
+
+
+                                            Trasport  Layer  ------------------> L4
+
+
+                                            Network Layer  --------------------> L3
+
+
+                                            Data Link Layer  ------------------> L2
+
+
+                                            Physical Layer  -------------------> L1
+
+        
+
+        *Application Layer is always Layer7 , it is never ever L1 , when some say it is layer1 is it wrong. 
+
+
+        Application Layer , Presentation Layer and Session Layer is called "Upper layer" ----> P2
+
+        Remaing Layers are Lower layers-----> P3
+        
+
+
+
+        Hub is called as Physical layer(L1) device    -----> P4
+
+        Switch is called as Data Link Layer(L2) device -->  P4
+
+        Router is called as Network Layer(L3) Device  --> P4
+
+
+
+
+        * Data Link Layer and Network layer got some "Addressing" skills:
+
+                            Network Layer Address--- > IP Address (L3 address)
+
+                            Data Link Layer ---->      MAC addres (L2 addres)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+

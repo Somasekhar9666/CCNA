@@ -1,0 +1,29 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NIC: Contains Burnt-in-address/MAC address/L2 address/hardware address / Physical address/ MAC-48 bit (12 hexa) address burnt into the NIC at the time of manufacturing and is stored in the read-only memory (ROM) of the NIC. 
+
+    The MAC address is called a Burnt-in Address (BIA) because it is permanently assigned to a Network Interface Card (NIC) during the manufacturing process and is stored in the read-only memory (ROM) of the NIC. This means the address is "burnt" into the hardware and cannot be changed (though some software-based modifications are possible).
+
+            
+            A MAC address is a 48-bit hexadecimal number represented in 12 hexadecimal digits(one Hexa Decimal number is 4 bit--> 48bits /4 =12 hexadecimal numbers) (6 bytes)(when some asks or if you want to send , we can not say 0 0 0 0 1.... so we use hexadecimal form to represent it easily):
+
+                    Ex: 001A . 2B3C . 4D5E
+
+                                or
+
+                        00:1A:2B:3C:4D:5E
+
+
+                Here:
+
+                    00:1A:2B(6digits --> 24 bits) → Manufacturer's unique ID (Organizationally Unique Identifier - OUI) provided by Institue of Electrical and Electronics Engineers - IEEE
+                    3C:4D:5E → Device-specific identifier or Vendor assigned like samsung galaxy ....
+
+
+
+
+            For more refer P4 ,P5 and P6
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

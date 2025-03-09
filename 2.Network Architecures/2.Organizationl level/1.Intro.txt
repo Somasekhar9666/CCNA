@@ -1,0 +1,9 @@
+form the Computers(end devices) the data flows to Access layer Switches  whcih ate in Access layer  (P2)
+
+
+from the Access layer Switches are connected to  Distribution Switches (P3)
+
+from the Distribution Switches  are connected to Routers (P4)
+
+
+This architecture is 2 Tier architecture 

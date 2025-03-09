@@ -1,0 +1,14 @@
+
+DTE : Data Terminal Equiment Device :
+ 
+                        Acts as as terminal and modify a signal
+
+                            Ex: Computer and Router
+
+
+
+DCE: Data communtication Equipent Device 
+
+        those middle devices which helps in communication 
+            Example - Switch modem CSU/DSU  channel or data service unit
+

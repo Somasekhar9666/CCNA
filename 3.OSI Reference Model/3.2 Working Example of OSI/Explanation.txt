@@ -1,0 +1,186 @@
+Lets say we are sending "Hi' meggsage(which nothing but a Data) from Machine1 to  Machine2 (Machine1 -----------------------> Machine2):
+
+    Sending Side(Machine1):
+
+        1.In Application Layer:
+
+                1.Machine1 pass the message "Hi"(Data) to the Application Layer
+
+                2.Now Application Layer process the data and adds some certain values to the Data, this process is called as "Data encapsulation". ---> P2
+
+                3.This add on's are : 
+                                    1.Application Header (AH----> Application Header) --> P3
+
+                4.with this Struture "(Hi + Application Header)", Data Later been sent  Presentation Layer
+        
+
+        2. In Presentation Layer:
+
+                1. the Presentation Layer adds its own "Presentation layer Header" to the Incoming Data.---> P4
+
+                2. with this Struture "(Presentation Header + Application Header + Hi)", Data Later been sent  Session Layer
+        
+
+        3. In Session Layer:
+
+                1. the Session Layer adds its own "Session layer Header" to the Incoming Data.---> P5
+
+                2. with this Struture "(Session Header + Presentation Header + Application Header + Hi)", Data Later been sent  Trasport Layer
+
+        
+
+
+            so the PDU(Protocol Data unit) in this layers (upper layers) is called  " Data"  ---> P6
+
+
+
+
+        4. In Trasport layer: 
+
+                1. the Trasport Layer adds its own "Trasport layer Header" to the Incoming Data.  ---> P7
+            
+            the PDU(Protocol Data unit) in this Layer is  called as "Segment" 
+
+        
+        5. In Network layer: 
+
+                1. the Network Layer adds its own "Network layer Header" to the Incoming Data. --> P8
+            
+            the PDU(Protocol Data unit) in this Layer is  called as "Packet" 
+
+
+        *6. In Data Link layer: 
+
+                1. the Data Link Layer adds its own  TWO Headers to the Incoming Data. --> P9: 
+
+                            i.Data Link layer Header
+                            
+                            ii.Data Link layer Trailer *
+                
+            
+            the PDU(Protocol Data unit) in this Layer is  called as "Frame" 
+
+    
+        7. In Physical Layer:
+
+               The Physical Layer is responsible for the actual transmission of data over the physical medium (like copper wires, fiber optics, or wireless signals). It takes the Frame from the Data Link Layer and converts it into electrical, optical, or radio signals.
+
+               The Physical Layer does not add any header or trailer. It simply transmits the Frame as raw bits (1s and 0s) over the physical medium, like a cable or wireless channel, to the receiving machine (Machine2).
+                
+                The signal travels through the network medium (e.g., wired or wireless) and reaches the receiving device.
+            
+                so the "Frame" coming from the Data Link Later is passed to Destination(Machine2). ---- > P10
+
+        
+
+    So the Source (sender Machine1) process the Data from "Layer 7 to Layer 1"(L7 ----> L1)
+
+
+    
+
+
+
+    **Receiving Side(Machine2):
+
+         7. In Physical Layer:
+
+                The Physical Layer on Machine2 receives the raw bits (signals) sent through the physical medium and converts them back into a Frame.
+
+        
+        6. In Data Link layer:
+
+            1.the Data link layer "Removes" the DH and DT from the Frame amd constructs the Packet ---> P11
+
+            2.It performs error checking (e.g., CRC), and if everything is correct, it passes the Packet (without the Data Link Layer's additions) up to the Network Layer.
+
+            2.the pocket is sent to network layer
+
+
+        5. In Network layer:
+
+            1.The Network Layer receives the Packet, removes the Network Header (NH), and then checks if the IP address is correct.
+
+            2.If the address is valid, the Network Layer constructs the Segment by passing the remaining data to the Transport Layer.
+
+
+         4.Trasport layer:
+
+            1.The Transport Layer receives the Segment, removes the Transport Header (TH), and then checks the sequence number to ensure the data is in the right order.
+
+            2.The Transport Layer reconstructs the original Data and passes it up to the Session Layer.
+
+        
+
+        5. Session Layer (Layer 5)
+
+                1.The Session Layer processes the Data, manages the session, and passes it up to the Presentation Layer. The session-related information is removed.
+        
+        
+        6. Presentation Layer (Layer 6)
+                
+                The Presentation Layer processes the Data, converting it into the correct format (e.g., decryption, decompression, or decoding).
+                
+                The Presentation Header (PH) is removed.
+
+
+        7. Application Layer (Layer 7)
+                
+                The "Hi" message (the original data) is passed to the application on Machine2.
+                
+                The Application Layer processes the data and delivers it to the end-user application, like showing the message in a chat window.
+                    
+
+                
+    
+
+        So the Destination (Receiver Machine2) process the Data from "Layer1 to Layer7"(L1 ----> L7)
+
+
+
+
+
+
+
+
+
+Data encapsulation and Decapsulation:
+
+        Source side the addiing Headers ----> encapsulation 
+
+        Destination side Removing Headers ---> Decapsulation
+    
+
+
+
+
+            
+
+        
+
+
+        
+
+
+
+
+
+            
+            
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

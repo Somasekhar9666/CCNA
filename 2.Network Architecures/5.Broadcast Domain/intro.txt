@@ -1,0 +1,32 @@
+signal floding ----> switch sends to other nodes in network except Source node
+
+
+**broadcast Domain: 
+
+        *A broadcast domain includes all devices that receive a broadcast message sent by any device in that domain.
+        
+        A broadcast is a message sent to all devices in the network (e.g., ARP request).
+        
+        *Routers do not forward broadcasts between different networks, so they create broadcast domain boundaries.
+
+        📌 Example:
+            Scenario: A network with switches and a router
+
+            If you have multiple devices connected to a switch, they are in the same broadcast domain.
+            If a router is placed between two switches, it separates the broadcast domains.
+            
+            🔹 Diagram:
+
+                        [PC1] ─ [Switch] ─ [PC2]  (Same Broadcast Domain)  
+
+                        [PC1] ─ [Switch] ─ [Router] ─ [Switch] ─ [PC3]  
+                        (Different Broadcast Domains because of the Router)
+        
+        So Routers define broadcast domain boundaries—not just the network itself.
+
+
+Router will not supoort any broadcast , so router is the end point for broadcast P3
+
+Each interface ofa router is in diffrent broascase domain **************** P5
+
+

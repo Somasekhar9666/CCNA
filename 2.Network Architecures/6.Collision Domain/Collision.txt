@@ -1,0 +1,5 @@
+collison may happen when trafiic In and Out same time 
+
+
+the  area  where the collision  is limited  is called collision Domain PC2
+

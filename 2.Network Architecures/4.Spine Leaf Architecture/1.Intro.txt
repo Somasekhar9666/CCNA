@@ -1,0 +1,7 @@
+spine switches are connected to leaf switches 
+
+
+all spines are leaf switch , 
+    but no spine to spine and leaf to leaf connections
+
+    

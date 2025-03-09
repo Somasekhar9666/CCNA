@@ -1,0 +1,20 @@
+Small Office Home Office:    P1
+
+
+        all the end devices are connected to Swith
+
+
+        and the switch reports to  firewall
+
+        and the firewall is connected to Router
+
+        from the Router ,  the Router connected to Internet
+
+        
+        
+        
+        It has IP Phone too which connected via Wired medium
+
+
+        for Wirelees connectivty uses Access Point 
+

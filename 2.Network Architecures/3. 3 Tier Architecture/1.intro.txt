@@ -1,0 +1,6 @@
+
+Access layer Switches are connected to Distribution Switches 
+
+Distribution Switches are connected to Core layer
+
+from core layer you can connected to Internet

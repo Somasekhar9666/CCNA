@@ -1,0 +1,337 @@
+To give you a clear understanding of how data flows through all seven layers of the OSI model, let’s use a simple example of sending a text message—for instance, "Hello"—from Machine1 (Sender) to Machine2 (Receiver). We will explain the operations that happen at each layer, both on the sender’s and receiver’s side.
+
+    The OSI Model Overview:
+        
+        Each layer is a "Package of Protocols" which decides the folow of Data in the network to maitain seamless Commmunication
+            
+            The OSI Model has seven layers:
+
+                        Application Layer
+                        
+                        Presentation Layer
+                        
+                        Session Layer
+                        
+                        Transport Layer
+                        
+                        Network Layer
+                        
+                        Data Link Layer
+                        
+                        Physical Layer
+
+
+
+
+
+
+Sender Perspective:
+
+        1. Application Layer (Layer 7)
+
+                Application layer is used Network Applications --> Comouter Applications that use Intenet like Chrome , Firefox, outlook , webex....
+
+                Browsers use HTTP/HTTPS to do web surfing 
+                
+                outlook and Gmail uses SMTP to Mail  transfer  , FTP for file transfer......
+
+                there are Dozens of Application layer Protocols that enables variious funtions in this Layer
+                    
+                **The Application Layer Provides Services for Network applications with help variious Application layer Protocols to perform User Activities
+                    
+                Operation:
+                            The application on Machine1 (sender) prepares the message "Hello" (the data).
+                            
+                            The application then passes the data to the Presentation Layer for further processing.
+                            
+                            Example: When you type "Hello" in a messaging app, that text is generated at the Application Layer.
+        
+
+
+        2. Presentation Layer (Layer 6)
+                    
+                    Role: The Presentation Layer is responsible for data formatting, encryption, and compression. It ensures that the data is in a format that the recipient can understand (e.g., ASCII, UTF-8).
+                    
+                    Operation:
+                            Machine1’s Presentation Layer takes the raw data ("Hello") and may apply encoding, compression, or encryption depending on the application's requirements.
+                            
+                            For instance, if the message is in UTF-8 encoding, it will be converted into its byte representation.
+                            
+                            If encryption is required (for security), the message "Hello" may be encrypted into something like 9a74adf42f... (a ciphertext).
+                            
+                            The data is passed down to the Session Layer.
+                    
+                    Example: If the message "Hello" is encoded into UTF-8, the text will be transformed into a sequence of bytes (e.g., 72 101 108 108 111 for each character).
+
+        
+
+        3. Session Layer (Layer 5)
+                       
+                        Role: The Session Layer manages the session between two communicating machines, ensuring the communication is established, maintained, and properly terminated. It handles session management (start, maintenance, end).
+                        
+                        Operation:
+                                    Machine1’s Session Layer sets up, maintains, and terminates the session between the sender and receiver.
+                                    
+                                    If multiple messages are exchanged, the Session Layer ensures data is properly organized and synchronized.
+                                    
+                                    After establishing the session, the data (still "Hello") is passed down to the Transport Layer.
+
+                                    *Session layer Has its own helpers , those are  API's ,NETBIOS
+
+                                    *Server uses Autionication to Identify the user BEFORE  creatring the session
+
+                                    Autirazition also perfomed  by session Layer
+                        
+                        Example: If you are chatting with someone in real-time, this layer ensures that both sides stay synchronized and manage the session of your chat.
+
+
+
+
+        *4. Transport Layer (Layer 4)
+                        
+                        Role: The Transport Layer ensures reliable data transfer by providing flow control, error handling, and segmentation. It breaks the data into smaller units called segments.
+
+                                                                                    or
+
+                        Transport Layer controls the Reliabiity of communication through :
+
+                                                    Segmentation 
+
+                                                    Flow control 
+
+                                                    Error control
+
+                            
+                                Segmentation : Break Down of Incoming Data into smaller Data units callaed Segments
+                                              
+                                               Each Segment contains:
+                                                     Source and destination  port Numbers so that it correctly go its respected application ---> like Whatsapp , facebook, insta , gmail...
+
+                                                     a Sequance Number  --> to form or re-assemble correct order in the reciver side
+                                
+                                Flew control: 
+
+                                        Controls the Data flow rate b/w the session  to make sure that the no data loss
+
+                                Error Control:
+                                  
+                                        if some data is not arrived at destination , TS layer uses Automatic Repeat Request  to get the  lost data
+
+                                        also it adds some checksum to each segment to ensure the trasmission 
+                                
+
+                        Ex Protocols are : TCP and UDP
+
+
+                        Transport Layer perfoms two kinds of  services :
+
+                                    1. Connection -Oriented trasmission ------------------> TCP 
+
+                                    2. Connection Less trasmission --------------------> UDP 
+                        
+
+
+                        *UDP  is faster than TCP , because UDP does not provides any Feedback  wheather the data is really Delivered , while  TCP Provides Feedback sothat lost data is re-transmitted
+
+                        UDP is used where wheather we have recived old data -----> songs , movies , games , voice over IP  TFTP , DNS 
+
+                        TCP: full data delivery is must  ---> www , meail ,FTP ..
+
+
+
+
+                        Operation:
+                                    Machine1’s Transport Layer divides the message (if necessary) into smaller chunks called segments.
+                                    
+                                    It adds a Transport Header containing source and destination port information (e.g., source port: 8080, destination port: 80 for HTTP).
+                                    
+                                    The Transport Layer also manages end-to-end error detection and control.
+                                    
+                                    The data is passed down to the Network Layer.
+                        
+                        Example: The message "Hello" could be divided into smaller packets (if it's a large message), and each packet gets a segment header with information about where the data should go.
+                                    
+
+
+
+
+
+
+        5. Network Layer (Layer 3)  
+
+
+                this layer works for the  trasmission of recived Data Segments from one computer to another computer in diffrent Networks 
+
+
+                Routers Works in this layer 
+
+                the funtions of Network layer is :
+
+                                        1.Logical Addressing ---> IPv4 and IPv6 
+
+                                        2.Path Determination
+
+                                        3.Routing
+
+                
+                Network layer Assingns Senders and receivers IP's to the each segment to form Packets
+
+
+                *Routing :   
+
+                        Routing is method of moving a packet from source to destination which is based upon the Logical Addressing with a Mask 
+
+
+                        Lets say from computer B we are requsted to access "facebook.com", 
+
+                        Now the facebook server replies back with packet to the Computer B , the packet should go to computer B with help of routing 
+
+
+                        each device in a network must they possess unique IP .
+
+                        facebook server already addedd sender and receiver IP in the packet .
+
+                        in the mask the first 3 digits represents network and 4th represents host in a network 
+
+                        Beased on the mask , the packet first goes to the network, then it goes to the host 
+
+
+
+                Path Determination : 
+
+                        choosig shorted path from sender to reciver for data delivery is called Path Determination
+
+                                    L3 Device (Router) uses  OSPF , BGP and IS-IS to find best shortest path in the network
+
+                    
+                    Operation:
+                            Machine1’s Network Layer adds a Network Header containing source and destination IP addresses.
+                            
+                            The Network Layer determines the best path for the data to travel and forwards it.
+                            
+                            The data is then passed to the Data Link Layer.
+                    
+                    Example: The IP header will indicate that the message is being sent from the source IP (e.g., 192.168.1.1) to the destination IP (e.g., 192.168.1.2).
+
+            
+
+
+            6. Data Link Layer (Layer 2):
+
+                Physical Addressing is done at this layer 
+
+                Physical Addressing: 
+
+                    *MAC adress of Sender and reciver is added to the Incoming Packet to form Frame
+
+                
+                *Data Link layer is emmbended as a Software in NIC of a computer to transfer the Data via Media(medium like physical copper wires , cables or Wireless Air EM)(link)
+
+
+                Data link layer perfoms two functions 
+
+                Framing:
+                        It allows Uppper layers of OSI models  to access the Medium 
+
+                        Controls how data is placed and received from the medium --> Medium access  control  , 
+
+                Role: The Data Link Layer is responsible for framing the data and managing access to the physical medium (e.g., Ethernet, Wi-Fi).
+                
+                Operation:
+                            Machine1’s Data Link Layer adds a Data Link Header and Trailer (for error detection) to the data.
+                            
+                            The Data Link Layer creates a frame, which includes both the header (with source and destination MAC addresses) and the trailer (to check for transmission errors).
+                            
+                            The data is passed to the Physical Layer for transmission.
+                
+                Example: The frame will contain the MAC address of Machine1 (sender) and Machine2 (receiver), and if there’s a transmission error, the trailer helps to detect that.
+
+            
+
+
+            7. Physical Layer (Layer 1)
+                                        Role: The Physical Layer is responsible for the actual transmission of raw bits over the physical medium, such as cables, wireless signals, etc.
+                                        
+                                        Operation:
+                                                    Machine1’s Physical Layer converts the data into electrical signals, light pulses, or radio waves (depending on the medium).
+                                                    
+                                                    These signals are transmitted to the network and carried over the physical medium to the receiver.
+                                        
+                                        Example: The frame is converted into electrical signals (if using copper cables) or radio waves (if using Wi-Fi) and transmitted across the network.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Receiver Perspective:
+            On the receiver side, each layer performs the reverse operation to reconstruct the original message.
+
+            1. Physical Layer (Layer 1)
+            Operation:
+            Machine2’s Physical Layer receives the electrical signals, light pulses, or radio waves sent by Machine1.
+            It converts these signals back into binary data (1s and 0s).
+            Example: The signals are converted back into a binary format that can be processed by the next layer.
+            
+            
+            2. Data Link Layer (Layer 2)
+            Operation:
+            Machine2’s Data Link Layer receives the frame from the Physical Layer.
+            It checks the Data Link Trailer for error detection (e.g., CRC check) and removes the Data Link Header and Trailer.
+            The data is passed up to the Network Layer.
+            Example: The frame is checked for errors, and if everything is correct, the MAC headers are stripped off, leaving the packet.
+            
+            
+            
+            3. Network Layer (Layer 3)
+            Operation:
+            Machine2’s Network Layer removes the Network Header and extracts the data (the packet).
+            It checks if the data is destined for Machine2 based on the destination IP address.
+            The data is passed up to the Transport Layer.
+            Example: The packet header is stripped off, and the remaining data is handed to the Transport Layer.
+            
+            
+            
+            4. Transport Layer (Layer 4)
+            Operation:
+            Machine2’s Transport Layer removes the Transport Header (which contains source/destination port information).
+            It ensures that all segments are properly reassembled to reconstruct the original message.
+            The data is passed up to the Session Layer.
+            Example: The segments are reassembled into the complete message ("Hello"), and the transport header is discarded.
+            
+            
+            
+            5. Session Layer (Layer 5)
+            Operation:
+            Machine2’s Session Layer ensures that the session between Machine1 and Machine2 is properly maintained.
+            It does not modify the data but ensures the session is synchronized.
+            The data is passed up to the Presentation Layer.
+            Example: If the session is active and no other session changes are needed, the session header is stripped and the data ("Hello") is passed on.
+           
+           
+           
+            6. Presentation Layer (Layer 6)
+            Operation:
+            Machine2’s Presentation Layer may decrypt, decompress, or decode the data.
+            If encryption or compression was applied, this layer reverses those operations.
+            It transforms the data back into a readable format and passes it to the Application Layer.
+            Example: If "Hello" was encrypted or compressed, this layer will convert it back to its original form ("Hello").
+            
+            
+            
+            7. Application Layer (Layer 7)
+            Operation:
+            Machine2’s Application Layer receives the data ("Hello") and presents it to the user.
+            The data is now ready for the application (e.g., a messaging app).
+            Example: The user sees the message "Hello" on their screen.
